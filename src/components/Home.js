@@ -135,7 +135,7 @@ const handleSubmit = () => {
                 <Grid item xs={12} sm={4} lg={4}>
                     <div className="flex-container">
                         <div className="chip-not-started">Not Started</div>
-                        <span style={{marginLeft: '5px', opacity: "0.5"}}>3</span>
+                        <span style={{marginLeft: '5px', opacity: "0.5"}}>{not_started.length}</span>
                         <span style={{marginLeft: '5px', opacity: "0.5" , marginTop: '0px', marginLeft: 'auto'}}>...</span>
                         <span style={{marginLeft: '5px', opacity: "0.5", fontSize: '25px', cursor: "pointer"}} onClick={()=>handleClickOpen("not started")}>+</span>
                     </div>
@@ -167,7 +167,7 @@ const handleSubmit = () => {
                 <Grid item xs={12} sm={4} lg={4}>
                     <div className="flex-container">
                         <div className="chip-in-progress">In progress</div>
-                        <span style={{marginLeft: '5px', opacity: "0.5"}}>3</span>
+                        <span style={{marginLeft: '5px', opacity: "0.5"}}>{in_progress.length}</span>
                         <span style={{marginLeft: '5px', opacity: "0.5" , marginTop: '0px', marginLeft: 'auto'}}>...</span>
                         <span style={{marginLeft: '5px', opacity: "0.5", fontSize: '25px', cursor: "pointer"}} onClick={()=>handleClickOpen("in progress")}>+</span>
                     </div>
@@ -201,7 +201,7 @@ const handleSubmit = () => {
                 <Grid item xs={12} sm={4} lg={4}>
                     <div className="flex-container">
                         <div className="chip-completed">Completed </div>
-                        <span style={{marginLeft: '5px', opacity: "0.5"}}>3</span>
+                        <span style={{marginLeft: '5px', opacity: "0.5"}}>{completed.length}</span>
                         <span style={{marginLeft: '5px', opacity: "0.5" , marginTop: '0px', marginLeft: 'auto'}}>...</span>
                         <span style={{marginLeft: '5px', opacity: "0.5", fontSize: '25px', cursor: "pointer"}} onClick={()=>handleClickOpen("completed")}>+</span>
                     </div>
