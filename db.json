@@ -1,0 +1,18 @@
+{
+  "list": [
+    {
+      "id": 1,
+      "title": "gym",
+      "description": "work out",
+      "tag": "not started",
+      "dueDate": ""
+    },
+    {
+      "id": 2,
+      "title": "market",
+      "description": "buying clothes",
+      "tag": "completed",
+      "dueDate": ""
+    }
+  ]
+}
