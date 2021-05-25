@@ -65,7 +65,7 @@ function Home(props){
     const handleOnDragEnd=(result)=> {
         console.log(result)
         if(result.destination!=null){
-            axios.patch(`http://localhost:5000/list/${result.draggableId}/`, {
+            axios.patch(`https://to-do-app-json-server.herokuapp.com/list/${result.draggableId}/`, {
             tag: `${result.destination.droppableId}`
             }).then(resp => {
 
@@ -82,7 +82,7 @@ function Home(props){
 
 
     useEffect(() => {
-        axios.get("http://localhost:5000/list")
+        axios.get("https://to-do-app-json-server.herokuapp.com/list")
         .then((res) => {
             console.log(res.data)
             setList(res.data)
@@ -107,7 +107,7 @@ const handleSubmit = () => {
 
     else{
         const id=uuidv4();
-        axios.post(`http://localhost:5000/list`, {
+        axios.post(`https://to-do-app-json-server.herokuapp.com/list`, {
             id: id,
             title: title,
             description: description,

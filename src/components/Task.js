@@ -54,7 +54,7 @@ function Task(props) {
     const [count, setCount] = useState(0);
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/list/${props.match.params.id}`)
+        axios.get(`https://to-do-app-json-server.herokuapp.com/list/${props.match.params.id}`)
             .then((res) => {
                 console.log(res)
                 setTitle(res.data.title)
@@ -70,7 +70,7 @@ function Task(props) {
     }
 
     const handleSave=()=>{
-        axios.patch(`http://localhost:5000/list/${props.match.params.id}`, {
+        axios.patch(`https://to-do-app-json-server.herokuapp.com/list/${props.match.params.id}`, {
             title: title,
             description: description,
             tag: status
@@ -85,7 +85,7 @@ function Task(props) {
     }
 
     const handleDelete=()=> {
-        axios.delete(`http://localhost:5000/list/${props.match.params.id}`)
+        axios.delete(`https://to-do-app-json-server.herokuapp.com/list/${props.match.params.id}`)
         .then((res) => {
             console.log(res.data)
             props.history.push('/home')
