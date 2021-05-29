@@ -31,6 +31,15 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: 'space-around',
         alignItems: "center",
     },
+    loaderRoot: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+    
+        '& > * + *': {
+          marginLeft: theme.spacing(2),
+        },
+      },
   }));
 
 
@@ -42,6 +51,7 @@ function Home(props){
     const [title, setTitle] = useState("")
     const [status, setStatus] = useState("")
     const [description, setDescription] = useState("")
+    const [spinner, setSpinner] = React.useState(true);
 
     let not_started=[], in_progress=[], completed=[];
 
@@ -67,6 +77,7 @@ function Home(props){
     const handleOnDragEnd=(result)=> {
         console.log(result)
         if(result.destination!=null){
+            setSpinner(true)
             axios.patch(`https://to-do-app-json-server.herokuapp.com/list/${result.draggableId}/`, {
             tag: `${result.destination.droppableId}`
             }).then(resp => {
@@ -85,8 +96,8 @@ function Home(props){
     useEffect(() => {
         axios.get("https://to-do-app-json-server.herokuapp.com/list")
         .then((res) => {
-            console.log(res.data)
             setList(res.data)
+            setSpinner(false)
         })
         .catch((err) => console.log(err))
     },[count])
@@ -115,7 +126,6 @@ const handleSubmit = () => {
             tag: status
         })
         .then((res) => {
-                console.log(res)
                 setCount(count+1)
                 props.notifyOnCreate(`New task titled ${title} created`);
         })
@@ -127,7 +137,7 @@ const handleSubmit = () => {
         setStatus("")
     }
 }
-
+    if(!spinner){
     return (
         <div className={classes.root}>
             
@@ -246,6 +256,16 @@ const handleSubmit = () => {
             </Dialog>
         </div>
     );
+     }
+
+     else{
+         return(
+            <div className={classes.loaderRoot} style={{marginTop: '300px'}}>
+            <CircularProgress />
+          
+          </div>
+         )
+     }
 
 } 
 
