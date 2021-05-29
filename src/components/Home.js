@@ -13,6 +13,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Button from '@material-ui/core/Button';
 import { v4 as uuidv4 } from 'uuid';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -41,6 +42,8 @@ function Home(props){
     const [title, setTitle] = useState("")
     const [status, setStatus] = useState("")
     const [description, setDescription] = useState("")
+    const [open, setOpen] = React.useState(false);
+
     let not_started=[], in_progress=[], completed=[];
 
     if(list.length>0){
@@ -68,14 +71,13 @@ function Home(props){
             axios.patch(`https://to-do-app-json-server.herokuapp.com/list/${result.draggableId}/`, {
             tag: `${result.destination.droppableId}`
             }).then(resp => {
-
-                console.log(resp.data);
+                setCount(count+1);
+              
             }).catch(error => {
 
-                console.log(error);
             });  
 
-            setCount(count+1);
+            
         }
         
 }
