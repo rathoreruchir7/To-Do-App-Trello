@@ -42,7 +42,6 @@ function Home(props){
     const [title, setTitle] = useState("")
     const [status, setStatus] = useState("")
     const [description, setDescription] = useState("")
-    const [open, setOpen] = React.useState(false);
 
     let not_started=[], in_progress=[], completed=[];
 
